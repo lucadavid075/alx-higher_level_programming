@@ -1,5 +1,4 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    slist = list(my_string)
-    [slist.remove(i) for i in slist if i == 'c' or i == 'C']
-    return("".join(slist))
+    new_string = my_string.translate({ord(i): None for i in 'cC'})
+    return new_string
