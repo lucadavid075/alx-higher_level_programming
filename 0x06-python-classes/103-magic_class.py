@@ -5,7 +5,6 @@
 
 import math
 
-
 class MagicClass:
     """ Magic Class for a circle object"""
 
