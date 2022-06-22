@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 
 """Define a class Node that defines a node of a singly linked list."""
+
 class Node:
+    
     """ Defines a node of a singly linked list """
+    
     def __init__(self, data, next_node=None):
         """ Class Constructor """
         self.data = data
@@ -42,30 +45,4 @@ class SinglyLinkedList:
         self.__head = None
 
     def sorted_insert(self, value):
-        """ Inserts a new Node into the correct sorted position
-         in the list(Increasing order)"""
-
-        new_node = Node(value)
-        if not self.__head or self.__head.data >= value:
-            new_node.next_node = self.__head
-            self.__head = new_node
-        else:
-            tmp1 = self.__head
-            tmp2 = tmp1.next_node
-            while (tmp1 and tmp2 and (tmp2.data < value)):
-                tmp1 = tmp1.next_node
-                tmp2 = tmp1.next_node
-
-            new_node.next_node = tmp2
-            tmp1.next_node = new_node
-
-    def __str__(self):
-        """ Prints singly linked list """
-        tmp = self.__head
-        sllstr = ""
-        while (tmp):
-            sllstr += str(tmp.data)
-            tmp = tmp.next_node
-            if (tmp):
-                sllstr += "\n"
-        return (sllstr)
+        """ Inserts a new Node into the correct s
