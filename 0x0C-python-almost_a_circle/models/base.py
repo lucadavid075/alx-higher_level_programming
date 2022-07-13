@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 
 """Defines a base model class."""
 import json
@@ -23,10 +24,24 @@ class Base:
         Args:
             id (int): The identity of the new Base.
         """
+=======
+"""Creating the base class of all other classes for this project"""
+
+
+class Base:
+    """This class will manage theid attribute for all the classes.
+    Argumeents:
+        @id: The id for a specific instance
+    """
+    __nb_objects = 0
+
+    def __init__(self, id=None):
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
+<<<<<<< HEAD
             self.id = Base.__nb_objects
 
     @staticmethod
@@ -186,3 +201,6 @@ class Base:
             turt.hideturtle()
 
         turtle.exitonclick()
+=======
+            self.id = Base.__nb_objects
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf

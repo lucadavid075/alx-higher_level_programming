@@ -1,9 +1,16 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """Defines a rectangle class."""
+=======
+"""Rectangle class"""
+
+
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
 from models.base import Base
 
 
 class Rectangle(Base):
+<<<<<<< HEAD
     """Represent a rectangle."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -21,6 +28,15 @@ class Rectangle(Base):
             TypeError: If either of x or y is not an int.
             ValueError: If either of x or y < 0.
         """
+=======
+    """
+        Defining the Rectangle class
+        Inherits from:
+            Base
+    """
+
+    def __init__(self, width, height, x=0, y=0, id=None):
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
         self.width = width
         self.height = height
         self.x = x
@@ -29,11 +45,16 @@ class Rectangle(Base):
 
     @property
     def width(self):
+<<<<<<< HEAD
         """Set/get the width of the Rectangle."""
+=======
+        """Returning private attribute"""
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
         return self.__width
 
     @width.setter
     def width(self, value):
+<<<<<<< HEAD
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -43,10 +64,20 @@ class Rectangle(Base):
     @property
     def height(self):
         """Set/get the height of the Rectangle."""
+=======
+        """Setting private attribute"""
+        self.setter_validation("width", value)
+        self.__width = value
+    
+    @property
+    def height(self):
+        """Returning private attribute"""
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
         return self.__height
 
     @height.setter
     def height(self, value):
+<<<<<<< HEAD
         if type(value) != int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -56,23 +87,42 @@ class Rectangle(Base):
     @property
     def x(self):
         """Set/get the x coordinate of the Rectangle."""
+=======
+        """Setting private attribute"""
+        self.setter_validation("height", value)
+        self.__height = value
+    
+    @property
+    def x(self):
+        """Returning private attr"""
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
         return self.__x
 
     @x.setter
     def x(self, value):
+<<<<<<< HEAD
         if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
+=======
+        """Setting private attr"""
+        self.self_validation("x", value)
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
         self.__x = value
 
     @property
     def y(self):
+<<<<<<< HEAD
         """Set/get the y coordinate of the Rectangle."""
+=======
+        """Returning private attr"""
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
         return self.__y
 
     @y.setter
     def y(self, value):
+<<<<<<< HEAD
         if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -156,3 +206,9 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
+=======
+        """Setting the private attr"""
+        self.setter_validation("y", value)
+        self.__y = value
+        
+>>>>>>> d9149e538501ec0852c6270169e329073ab3fccf
