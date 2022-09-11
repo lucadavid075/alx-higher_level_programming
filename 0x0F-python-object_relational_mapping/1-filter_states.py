@@ -9,10 +9,11 @@ if __name__ == "__main__":
     password = argv[2]
     db_name = argv[3]
     db = MySQLdb.connect(host="localhost",
-                         port=3306,
                          user=username,
                          passwd=password,
-                         db=db_name)
+                         db=db_name,
+                         port=3306)
+
     cursor = db.cursor()
     cursor.execute("SELECT * FROM `states`\
                    WHERE `name` REGEXP '^N' ORDER BY `id` ASC")
