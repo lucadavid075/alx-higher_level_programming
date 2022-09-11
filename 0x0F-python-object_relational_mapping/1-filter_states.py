@@ -13,14 +13,12 @@ if __name__ == "__main__":
                          user=username,
                          passwd=password,
                          db=db_name)
-    cur = db.cursor()
-    cur.execute("SELECT states.id, name FROM states WHERE name "
-                "COLLATE latin1_general_cs "
-                "LIKE 'N%' "
-                "ORDER BY states.id ASC;")
-    rows = cur.fetchall()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM `states`\
+                   WHERE `name` REGEXP '^N' ORDER BY `id` ASC")
+    rows = cursor.fetchall()
     for row in rows:
-        print(row)
-
-    cur.close()
+        if ("N" in row[1]):
+            print(row)
+    cursor.close()
     db.close()
