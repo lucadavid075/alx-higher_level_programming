@@ -10,23 +10,16 @@ if __name__ == "__main__":
     db_name = argv[3]
     state_name = argv[4]
     db = MySQLdb.connect(host="localhost",
-                         port=3306,
                          user=username,
                          passwd=password,
-                         db=db_name)
-    cursor = db.cursor()
+                         db=db_name,
+                         port=3306)
 
-    query = """
-    SELECT * FROM `states` WHERE `name`=(%s)
-    COLLATE latin1_general_cs
-    ORDER BY states.id ASC;
-    """
-
-    cursor.execute(query, (state_name, ))
-
-    rows = cursor.fetchall()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM `states`\
+                   WHERE `name`=(%s) ORDER BY `id` ASC", (state_name,))
+    rows = cur.fetchall()
     for row in rows:
         print(row)
-
-    cursor.close()
+    cur.close()
     db.close()
