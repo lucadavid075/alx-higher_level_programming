@@ -14,12 +14,12 @@ if __name__ == "__main__":
                          db=db_name,
                          port=3306)
 
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM `states`\
+    cur = db.cursor()
+    cur.execute("SELECT * FROM `states`\
                    WHERE `name` REGEXP '^N' ORDER BY `id` ASC")
-    rows = cursor.fetchall()
+    rows = cur.fetchall()
     for row in rows:
         if ("N" in row[1]):
             print(row)
-    cursor.close()
+    cur.close()
     db.close()

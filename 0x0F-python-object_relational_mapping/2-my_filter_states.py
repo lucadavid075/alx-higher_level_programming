@@ -14,13 +14,13 @@ if __name__ == "__main__":
                          user=username,
                          passwd=password,
                          db=db_name)
-    cursor = db.cursor()
+    cur = db.cursor()
     query = "SELECT * FROM states WHERE name=('{}')\
                  ORDER BY id ASC".format(state_name)
-    cursor.execute(query)
-    rows = cursor.fetchall()
+    cur.execute(query)
+    rows = cur.fetchall()
     for row in rows:
         if (row[1] == state_name):
             print(row)
-    cursor.close()
+    cur.close()
     db.close()
