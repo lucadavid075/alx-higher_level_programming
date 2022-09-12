@@ -23,4 +23,4 @@ if __name__ == "__main__":
         if (row[1] == state_name):
             print(row)
     cursor.close()
-    db.close(
+    db.close()
