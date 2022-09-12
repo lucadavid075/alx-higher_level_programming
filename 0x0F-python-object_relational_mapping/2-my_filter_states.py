@@ -14,18 +14,13 @@ if __name__ == "__main__":
                          user=username,
                          passwd=password,
                          db=db_name)
-    cur = db.cursor()
-
-    query = """
-    SELECT states.id, name FROM states WHERE name='{:s}'
-    COLLATE latin1_general_cs
-    ORDER BY states.id ASC;
-    """.format(state_name)
-
-    cur.execute(query)
-    rows = cur.fetchall()
+    cursor = db.cursor()
+    query = "SELECT * FROM states WHERE name=('{}')\
+                 ORDER BY id ASC".format(state_name)
+    cursor.execute(query)
+    rows = cursor.fetchall()
     for row in rows:
-        print(row)
-
-    cur.close()
-    db.close()
+        if (row[1] == state_name):
+            print(row)
+    cursor.close()
+    db.close(

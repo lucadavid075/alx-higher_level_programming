@@ -14,19 +14,19 @@ if __name__ == "__main__":
                          user=username,
                          passwd=password,
                          db=db_name)
-    cur = db.cursor()
+    cursor = db.cursor()
 
     query = """
-    SELECT states.id, name FROM states WHERE name = %s
+    SELECT * FROM `states` WHERE `name`=(%s)
     COLLATE latin1_general_cs
     ORDER BY states.id ASC;
     """
 
-    cur.execute(query, (state_name, ))
+    cursor.execute(query, (state_name, ))
 
-    rows = cur.fetchall()
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
 
-    cur.close()
+    cursor.close()
     db.close()
