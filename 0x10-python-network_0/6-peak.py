@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Finds a peak in a list of unsorted integers"""
 
-
 def peak_recur(a, Min, Max):
-    """ Binary Search Recursion """
+    """ Binary Search Recursion for peak function """
 
     if not a:
         return None
