@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Finds a peak in a list of unsorted integers"""
+
+
 def peak_recur(a, Min, Max):
     """ Binary Search Recursion for peak function """
     if not a:
@@ -17,6 +19,7 @@ def peak_recur(a, Min, Max):
     if a[half + 1] > a[half]:
         return peak_recur(a, half + 1, Max)
     return peak_recur(a, 0, half - 1)
+
 
 def find_peak(list_of_integers):
     """ Finds a peak in unsorted array """
